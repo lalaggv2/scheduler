@@ -78,3 +78,5 @@ function loadPlanner(start, end) {
 }
 
 loadPlanner(9, 17);
+
+//save to local storage and get from local storage
