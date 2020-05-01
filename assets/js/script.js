@@ -40,10 +40,14 @@ function showToDos() {
 }
 
 // I need a way to add new to dos
-function saveToDo(todo) {
-    toDos.push(todo);
-    console.log(todo)
-    alert('saving')
+function saveToDo(hour, task) {
+    toDos.push(task);
+    console.log(task);
+    localStorage.setItem("hour", hour);
+    localStorage.setItem("task", task);
+    let getItem = localStorage.getItem("task");
+    console.log(getItem);
+    // alert('saving')
 }
 
 function loadPlanner(start, end) {
@@ -64,10 +68,7 @@ function loadPlanner(start, end) {
         save.on("click", function (e) {
             console.log($(e.target).text())
             const buttonHour = $(e.target).attr('data-hour')
-            saveToDo({
-                hour: buttonHour,
-                task: $(`#${buttonHour}`).val()
-            });
+            saveToDo(buttonHour, $(`#${buttonHour}`).val());
         })
         row.append(hour);
         row.append(task);
@@ -80,3 +81,9 @@ function loadPlanner(start, end) {
 loadPlanner(9, 17);
 
 //save to local storage and get from local storage
+function savePlanner() {
+    var hoursTask = localStorage.getItem("hour", JSON.stringify(task));
+    //const data = JSON.parse(localStorage.getItem("todo")); (
+    localStorage.setItem("hour", task);
+}
+
