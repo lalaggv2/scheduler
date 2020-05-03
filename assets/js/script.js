@@ -30,41 +30,45 @@
 
 // then with JS access it to modify it.
 
-var toDos = ["item 1", "item 2", "item 3"];
-
-function showToDos() {
-  // document.createElement("div")
-  console.log(toDos);
-  //document.getElementById("todos");
-}
+var todos = {};
+const today = moment().format("MM-DD-YY");
 
 // I need a way to add new to dos
 function saveToDo(hour, task) {
-  toDos.push(task);
-  console.log(task);
-  localStorage.setItem("hour", hour);
-  localStorage.setItem("task", task);
-  let getItem = localStorage.getItem("task");
-  console.log(getItem);
-  // alert('saving')
+  todos[hour] = task;
+  localStorage.setItem(today, JSON.stringify(todos));
 }
 
 function loadPlanner(start, end) {
   const now = moment().format("MMMM Do YYYY, h:mm:ss a");
   const currentHour = moment().format("HH");
 
+  const todos = JSON.parse(localStorage.getItem(today));
   $("#today").text(now);
   for (var i = start; i <= end; i++) {
-    var row = $("<div>");
-    var hour = $(`<div>`);
-    var task = $(`<input id=${i} class="todo-item">`);
-    var save = $(`<button data-hour=${i}>`);
+    var row = $("<div class='row'>");
+    var hour = $(`<div class= "col-md-2">`);
+    var task = $(`<input id=${i} class="todo-item col-md-6">`);
+    var save = $(`<button class= "col-md-1" data-hour=${i}>`);
 
     hour.text(`${i}:00`);
 
+    if (i < currentHour) {
+      task.addClass("past");
+      task.prop("disabled", true);
+      save.prop("disabled", true);
+    } else if (hour === currentHour) {
+      task.addClass("present");
+    } else {
+      task.addClass("future");
+    }
+
+    if (todos) {
+      task.val(todos[i] || "");
+    }
+
     save.text("save");
     save.on("click", function (e) {
-      console.log($(e.target).text());
       const buttonHour = $(e.target).attr("data-hour");
       saveToDo(buttonHour, $(`#${buttonHour}`).val());
     });
@@ -73,14 +77,6 @@ function loadPlanner(start, end) {
     row.append(save);
     $("#planner").append(row);
   }
-  showToDos();
 }
 
-loadPlanner(9, 17);
-
-//save to local storage and get from local storage
-function savePlanner() {
-  var hoursTask = localStorage.getItem("hour", JSON.stringify(task));
-  //const data = JSON.parse(localStorage.getItem("todo")); (
-  localStorage.setItem("hour", task);
-}
+loadPlanner(9, 22);

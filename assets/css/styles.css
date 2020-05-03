@@ -10,12 +10,27 @@ row {
 
 div {
   background-color: lightblue;
-  text-align: left;
+  text-align: center;
   font-size: medium;
-  inline-flex
-
+  /* display: inline-flex; */
 }
 
-input #${i} {
-background-color: lightyellow;
+#todos {
+  text-align: center;
+}
+
+.todo-item {
+  background-color: lightcyan;
+  margin: 10px;
+  border: solid darkblue 3px;
+  padding: 5px;
+  /* width: max-content; */
+}
+.row {
+  justify-content: center;
+  align-items: baseline;
+}
+
+.past {
+  background-color: darkblue !important;
 }
