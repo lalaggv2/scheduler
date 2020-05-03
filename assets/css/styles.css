@@ -7,3 +7,15 @@ row {
 #planner {
   background-color: teal;
 }
+
+div {
+  background-color: lightblue;
+  text-align: left;
+  font-size: medium;
+  inline-flex
+
+}
+
+input #${i} {
+background-color: lightyellow;
+}
