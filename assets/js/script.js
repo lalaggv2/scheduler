@@ -79,4 +79,4 @@ function loadPlanner(start, end) {
   }
 }
 
-loadPlanner(7, 22);
+loadPlanner(7, 19);
