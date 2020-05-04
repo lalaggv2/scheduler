@@ -16,4 +16,4 @@ The task are being saved to the Local Storage so they persist even after refresh
 
 https://github.com/lalaggv2/scheduler/issues/2#issue-611562364
 
-
+The scheduler clears itself when the new day arrives so it's ready to start fresh.
