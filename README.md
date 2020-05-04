@@ -14,4 +14,6 @@ then you will find the hour on the left, the space for you to enter your activit
 
 The task are being saved to the Local Storage so they persist even after refreshing the page.
 
+https://github.com/lalaggv2/scheduler/issues/2#issue-611562364
+
 
