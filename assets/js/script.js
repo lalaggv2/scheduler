@@ -55,7 +55,7 @@ function loadPlanner(start, end) {
 
     if (i < currentHour) {
       task.addClass("past");
-      //   task.prop("disabled", true);
+      task.prop("disabled", true);
       save.prop("disabled", true);
     } else if (hour === currentHour) {
       task.addClass("present");
