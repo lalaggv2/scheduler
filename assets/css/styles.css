@@ -1,12 +1,20 @@
-row {
-  background-color: yellow;
-  text-align: justify;
-  font-size: medium;
+body {
+  font-family: "Rock Salt", cursive;
 }
 
-#planner {
+h1 {
+  margin: 22px 11px;
+  padding: 5px;
   background-color: teal;
 }
+
+h3 {
+  padding: 8px;
+  /* background-color: teal; */
+}
+/* #planner {
+  background-color: teal;
+} */
 
 div {
   background-color: lightblue;
@@ -17,6 +25,7 @@ div {
 
 #todos {
   text-align: center;
+  background-color: teal;
 }
 
 .todo-item {
@@ -32,5 +41,21 @@ div {
 }
 
 .past {
-  background-color: darkblue !important;
+  background-color: lightgray !important;
+  opacity: 0.4;
+}
+
+.future {
+  background-color: mediumaquamarine;
+}
+
+.present {
+  background-color: greenyellow;
+}
+
+#save {
+  background-color: rgb(255, 169, 71);
+  height: auto;
+  margin: 10px;
+  padding: 5px;
 }

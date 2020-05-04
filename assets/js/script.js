@@ -49,13 +49,13 @@ function loadPlanner(start, end) {
     var row = $("<div class='row'>");
     var hour = $(`<div class= "col-md-2">`);
     var task = $(`<input id=${i} class="todo-item col-md-6">`);
-    var save = $(`<button class= "col-md-1" data-hour=${i}>`);
+    var save = $(`<button id='save' class= "col-md-1" data-hour=${i}>`);
 
     hour.text(`${i}:00`);
 
     if (i < currentHour) {
       task.addClass("past");
-      task.prop("disabled", true);
+      //   task.prop("disabled", true);
       save.prop("disabled", true);
     } else if (hour === currentHour) {
       task.addClass("present");
@@ -79,4 +79,4 @@ function loadPlanner(start, end) {
   }
 }
 
-loadPlanner(9, 22);
+loadPlanner(7, 22);
